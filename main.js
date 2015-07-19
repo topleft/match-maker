@@ -36,12 +36,27 @@ function infoAlert(array, who) {
               "Phone Number: "+array[i].phoneNumber+"\n"+
               "City: "+array[i].city);
     alert(string);
+  }
 }
+
+
+// var numStudents = prompt("How many total students are learning javascript? ");
+// infoAlert(createPeople(numStudents, "Student"), "Students");
+//
+// var numMentors = prompt("How many total mentors are teaching javascript? ");
+// infoAlert(createPeople(numMentors, "Mentor"), "Mentors");
+
+
+function createPeopleOption(who) {
+  var people = [];
+  var another = true;
+  while(another) {
+    people.push(getInfo(who));
+    if((prompt("Another person?(y/n) ")).toLowerCase() === "n"){
+      another = false;
+    }
+  }
+  return people
 }
 
-
-var numStudents = prompt("How many total students are learning javascript? ");
-infoAlert(createPeople(numStudents, "Student"), "Student");
-
-var numMentors = prompt("How many total mentors are teaching javascript? ");
-infoAlert(createPeople(numMentors, "Mentor"), "Mentor");
+// infoAlert(createPeopleOption("Student"), "Students");
