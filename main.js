@@ -60,3 +60,47 @@ function createPeopleOption(who) {
 }
 
 // infoAlert(createPeopleOption("Student"), "Students");
+
+function createList(array) {
+  for (var i = 0; i < array.length; i++) {
+    console.log(array[i]);
+    var list = document.createElement("ul");
+    for (key in array[i]) {
+      var item = document.createElement("li");
+      // var text = document.createTextNode();
+      item.innerHTML = array[i][key]
+      list.appendChild(item);
+    }
+    (document.getElementsByTagName("body"))[0].appendChild(list);
+  }
+};
+
+// returns array
+createList(createPeopleOption('Students'));
+
+
+
+// array = list of keys
+// var keys = ["name", "phone-number", "city"]
+//
+//
+// function createPersonList(object, keysArray, who) {
+//   var personList = document.createElement("ul");
+//   var array = []
+//   for (i = 0; i < object.length; i++) {
+//     var personItem = document.createElement("li");
+//     personItem.innerHTML = object[keysArray[i]];
+//     personList.appendChild(personItem);
+//   }
+//   return personList;
+// };
+//
+// function appendList(array, keysArray, who){
+//   for (var i = 0; i < array.length; i++) {
+//     console.log(createPersonList(array[i], keysArray, who));
+//     document.getElementByTagName("body").appendChild(createPersonList(array[i], keysArray, who));
+//   }
+//
+// };
+//
+// appendList(createPeopleOption("Students"), keys, "Students");
