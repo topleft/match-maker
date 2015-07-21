@@ -14,9 +14,9 @@ console.log("sanity check!");
 
 function getInfo(who){
   var person = {};
-  person.position = who
+  person.position = who;
   person.name = prompt(who+" Name: ");
-  person.phoneNumber = prompt(who+" phone number: ");
+  person.phone = prompt(who+" phone number: ");
   person.city = prompt(who+" City: ");
   return person;
 }
@@ -26,14 +26,14 @@ function createPeople(num, who) {
   for (var i = 0; i < num; i++) {
     people.push(getInfo(who));
   }
-  return people
-};
+  return people;
+}
 
 function infoAlert(array, who) {
   alert("Number of "+who+": "+array.length);
   for (var i = 0; i < array.length; i++) {
     string = ("Name: "+array[i].name+"\n"+
-              "Phone Number: "+array[i].phoneNumber+"\n"+
+              "Phone Number: "+array[i].phone+"\n"+
               "City: "+array[i].city);
     alert(string);
   }
@@ -56,24 +56,27 @@ function createPeopleOption(who) {
       another = false;
     }
   }
-  return people
+  return people;
 }
 
 // infoAlert(createPeopleOption("Student"), "Students");
 
 function createList(array) {
+  // loop array
   for (var i = 0; i < array.length; i++) {
     console.log(array[i]);
     var list = document.createElement("ul");
-    for (key in array[i]) {
+    list.className = "person";
+    // loop over key value pairs of object
+    for (var key in array[i]) {
       var item = document.createElement("li");
-      // var text = document.createTextNode();
-      item.innerHTML = array[i][key]
+      item.innerHTML = key.toString()+": "+array[i][key];
       list.appendChild(item);
     }
+    // append one person's info to page
     (document.getElementsByTagName("body"))[0].appendChild(list);
   }
-};
+}
 
 // returns array
 createList(createPeopleOption('Students'));
